@@ -29,13 +29,32 @@ console.log(chainMap(4, square, half));         // 8
 console.log(chainMap(4, half, square));         // 4
 *******************************************************************************/
 
-function chainMap(val, ...callbacks) {
+// function chainMap(val, ...callbacks) {
   // Your code here
+//   let result = val;
+//   for (let i = 0; i < callbacks.length; i++) {
+//     let cb = callbacks[i];
+//     result = cb(result);
+//   }
+//   return result;
+// }
+
+// function chainMap(val, ...callbacks) {
+//   callbacks.forEach((cb) => {
+//     val = cb(val)
+//   })
+//   return val
+// }
+
+function chainMap(val, ...callbacks) {
+  return callbacks.reduce((acc, cb) => {
+    return cb(acc)
+  }, val)
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = chainMap;
-} catch(e) {
+} catch (e) {
   return null;
 }

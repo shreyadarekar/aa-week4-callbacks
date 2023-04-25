@@ -25,6 +25,16 @@ console.log(result3);   // true
 
 function mySome(array, cb) {
     // Your code here
+    for(let i = 0; i < array.length; i++){
+        let ele = array[i];
+        // let res = cb(ele, i)
+        // if(res === true){
+            // return true;
+        // }
+        const isTrue = cb(ele,i)
+        if(isTrue) return true;
+    }
+    return false;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
